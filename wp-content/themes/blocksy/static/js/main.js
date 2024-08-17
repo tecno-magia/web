@@ -12,8 +12,6 @@ import { mountDynamicChunks } from './dynamic-chunks'
 import { menuEntryPoints } from './frontend/entry-points/menus'
 import { liveSearchEntryPoints } from './frontend/entry-points/live-search'
 
-import { mountElementorIntegration } from './frontend/integration/elementor'
-
 import { preloadClickHandlers } from './frontend/dynamic-chunks/click-trigger'
 import { isTouchDevice } from './frontend/helpers/is-touch-device'
 
@@ -28,6 +26,7 @@ import {
 	fastOverlayHandleClick,
 	fastOverlayMount,
 } from './frontend/fast-overlay'
+// import { mount } from './frontend/social-buttons'
 
 let allFrontendEntryPoints = [
 	...menuEntryPoints,
@@ -61,7 +60,7 @@ let allFrontendEntryPoints = [
 	{
 		els: '.ct-share-box [data-network]:not([data-network="pinterest"]):not([data-network="email"])',
 		load: () => import('./frontend/social-buttons'),
-		trigger: ['click'],
+		trigger: ['hover'],
 		condition: () =>
 			!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
 				navigator.userAgent
@@ -258,8 +257,6 @@ onDocumentLoaded(() => {
 	setTimeout(() => {
 		initOverlayTrigger()
 	})
-
-	mountElementorIntegration()
 })
 
 let isPageLoad = true
@@ -277,21 +274,40 @@ ctEvents.on('blocksy:frontend:init', () => {
 	if (isPageLoad) {
 		isPageLoad = false
 	} else {
-		import('./frontend/integration/stackable').then(
-			({ mountStackableIntegration }) => mountStackableIntegration()
-		)
+		let integrations = [
+			{
+				promise: () => import('./frontend/integration/stackable'),
+				check: () => true,
+			},
 
-		import('./frontend/integration/greenshift.js').then(
-			({ mountGreenshiftIntegration }) => mountGreenshiftIntegration()
-		)
+			{
+				promise: () => import('./frontend/integration/greenshift'),
+				check: () => !!window.gsInitTabs,
+			},
 
-		import('./frontend/integration/cf7.js').then(
-			({ mountCF7Integration }) => mountCF7Integration()
-		)
+			{
+				promise: () => import('./frontend/integration/cf7'),
+				check: () => !!window.wpcf7,
+			},
 
-		import('./frontend/integration/turnstile.js').then(
-			({ mountTurnstileIntegration }) => mountTurnstileIntegration()
-		)
+			{
+				promise: () => import('./frontend/integration/turnstile'),
+				check: () => !!window.turnstile,
+			},
+
+			{
+				promise: () => import('./frontend/integration/elementor'),
+				check: () => !!window.elementorFrontend,
+			},
+		]
+
+		Promise.all(
+			integrations
+				.filter(({ check }) => check())
+				.map(({ promise }) => promise())
+		).then((integrations) => {
+			integrations.map(({ mount }) => mount())
+		})
 	}
 })
 
@@ -312,5 +328,5 @@ ctEvents.on(
 )
 
 export { loadStyle, handleEntryPoints, onDocumentLoaded } from './helpers'
-export { registerDynamicChunk } from './dynamic-chunks'
+export { registerDynamicChunk, loadDynamicChunk } from './dynamic-chunks'
 export { getCurrentScreen } from './frontend/helpers/current-screen'

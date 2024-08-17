@@ -16,12 +16,12 @@ function isTouchDevice() {
 export const wooEntryPoints = [
 	{
 		els: 'body.single-product .woocommerce-product-gallery',
-		condition: () =>
-			!!document.querySelector(
-				'.woocommerce-product-gallery .ct-media-container'
-			),
 		load: () => import('./single-product-gallery'),
-		trigger: ['hover-with-click'],
+		trigger: [
+			{
+				id: 'hover-with-click',
+			},
+		],
 	},
 
 	{
@@ -45,6 +45,12 @@ export const wooEntryPoints = [
 		els: '.quantity .ct-increase, .quantity .ct-decrease',
 		load: () => import('./quantity-input'),
 		trigger: ['click'],
+	},
+
+	{
+		els: '.ct-woocommerce-cart-form .quantity .qty',
+		load: () => import('./quantity-input'),
+		trigger: ['change'],
 	},
 
 	{

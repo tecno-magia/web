@@ -41,7 +41,10 @@ watchOptionsWithPrefix({
 						let button = article.querySelector('.entry-button')
 
 						if (component.id === 'featured_image' && image) {
-							setRatioFor(component.thumb_ratio, image)
+							setRatioFor({
+								ratio: component.thumb_ratio,
+								el: image,
+							})
 
 							image.classList.remove('boundless-image')
 
@@ -140,6 +143,10 @@ watchOptionsWithPrefix({
 										el = el[1]
 									}
 								}
+							}
+
+							if (el.length === 1) {
+								el = el[0]
 							}
 
 							renderSingleEntryMeta({
@@ -315,10 +322,14 @@ export const getPostListingVariables = () => ({
 			// bottom spacing
 			let selectorsMap = {
 				title: '[data-archive="default"] .card-content .entry-title',
-				featured_image: '[data-archive="default"] .card-content .ct-media-container',
-				excerpt: '[data-archive="default"] .card-content .entry-excerpt',
-				read_more: '[data-archive="default"] .card-content .entry-button',
-				overall_score: '[data-archive="default"] .card-content .ct-overall-score-layer',
+				featured_image:
+					'[data-archive="default"] .card-content .ct-media-container',
+				excerpt:
+					'[data-archive="default"] .card-content .entry-excerpt',
+				read_more:
+					'[data-archive="default"] .card-content .entry-button',
+				overall_score:
+					'[data-archive="default"] .card-content .ct-overall-score-layer',
 			}
 
 			if (selectorsMap[layer.id]) {

@@ -156,9 +156,11 @@ const loadVideoWithStyles = (el) => {
 				descriptor.selector
 		)
 
-	loadStyle(maybeMatchingContainer.url).then(() => {
-		loadVideoOrIframeViaAjax(el)
-	})
+	if (maybeMatchingContainer) {
+		loadStyle(maybeMatchingContainer.url).then(() => {
+			loadVideoOrIframeViaAjax(el)
+		})
+	}
 }
 
 ctEvents.on('blocksy:frontend:flexy:slide-change', ({ instance, payload }) => {
@@ -186,6 +188,14 @@ ctEvents.on('blocksy:frontend:flexy:slide-change', ({ instance, payload }) => {
 	processInitialAutoplayFor(currentSlide, {
 		performVisibilityCheck: false,
 	})
+})
+
+ctEvents.on('blocksy:ajax:filters:done', () => {
+	;[...document.querySelectorAll('.ct-media-container[data-media-id]')].map(
+		(el) => {
+			processInitialAutoplayFor(el)
+		}
+	)
 })
 
 const processInitialAutoplayFor = (el, args = {}) => {
@@ -226,11 +236,22 @@ export const mount = (el, { event }) => {
 		}
 
 		mounted = true
-		;[
-			...document.querySelectorAll('.ct-media-container[data-media-id]'),
-		].map((el) => {
-			processInitialAutoplayFor(el)
+
+		const cb = () => {
+			;[
+				...document.querySelectorAll(
+					'.ct-media-container[data-media-id]'
+				),
+			].map((el) => {
+				processInitialAutoplayFor(el)
+			})
+		}
+
+		ctEvents.on('blocksy:frontend:init', () => {
+			cb()
 		})
+
+        cb()
 
 		return
 	}

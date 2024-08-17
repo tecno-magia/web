@@ -3,7 +3,7 @@
 .ct-account-modal > ul,
 .ct-language-switcher ul,
 [class*=ct-contact-info] ul,
-.products,
+.products:is(ul),
 .woocommerce-Reviews :where(ol, ul),
 .ct-comments :where(ol, ul),
 .ct-comments ul,
@@ -20,7 +20,8 @@
 .ct-filter-widget,
 .ct-compare-bar ul,
 .ct-product-hero ul,
-.ct-widget ul {
+.ct-widget ul,
+.ct-added-to-cart-product ul {
 	margin-bottom: 0;
 	list-style-type: none;
 

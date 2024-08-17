@@ -97,18 +97,49 @@ const triggersList = {
 		}
 	},
 
-	'variable-product-update': (trigger, chunk, loadChunkWithPayload) => {
-		;[...document.querySelectorAll(trigger.selector)].map((el) => {
-			if (el.hasVariableProductUpdateListener) {
-				return
-			}
+	'jquery-event': (trigger, chunk, loadChunkWithPayload) => {
+		trigger = {
+			matchTarget: true,
+			...trigger,
+		}
 
-			el.hasVariableProductUpdateListener = true
-			;['found_variation', 'reset_data'].map((eventName) => {
-				$(document.body).on(eventName, (event, eventData) => {
-					loadChunkWithPayload(chunk, { event, eventData }, el)
-				})
-			})
+		if (!document.body.ctHasJqueryEventListener) {
+			document.body.ctHasJqueryEventListener = {}
+		}
+
+		if (document.body.ctHasJqueryEventListener[chunk.id]) {
+			return
+		}
+
+		document.body.ctHasJqueryEventListener[chunk.id] = true
+
+		trigger.events.map((eventName) => {
+			$(document.body).on(
+				eventName,
+				function (event, eventData, ...eventArguments) {
+					let maybeElement = document.body
+
+					if (trigger.matchTarget) {
+						if (!event.target.closest('.product')) {
+							return
+						}
+
+						maybeElement = event.target
+							.closest('.product')
+							.querySelector(trigger.selector)
+
+						if (!maybeElement) {
+							return
+						}
+					}
+
+					loadChunkWithPayload(
+						chunk,
+						{ event, eventData, eventArguments },
+						maybeElement
+					)
+				}
+			)
 		})
 	},
 

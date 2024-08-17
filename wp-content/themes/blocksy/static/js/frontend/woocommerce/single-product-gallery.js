@@ -1,7 +1,4 @@
 import $ from 'jquery'
-
-import { isTouchDevice } from '../helpers/is-touch-device'
-
 import { pauseVideo } from '../helpers/video'
 
 export const mount = (el, { event: mountEvent }) => {
@@ -92,6 +89,7 @@ export const mount = (el, { event: mountEvent }) => {
 				showHideOpacity: false,
 				hideAnimationDuration: 0,
 				showAnimationDuration: 0,
+				tapToClose: true,
 			}
 		)
 
@@ -278,7 +276,7 @@ export const mount = (el, { event: mountEvent }) => {
 									  }
 									: {}),
 
-								...(isTouchDevice()
+								...(mountEvent && mountEvent.type === 'click'
 									? {
 											on: 'toggle',
 									  }
@@ -307,20 +305,22 @@ export const mount = (el, { event: mountEvent }) => {
 						return
 					}
 
+					let mediaContainer = mountEvent.target.closest(
+						'.ct-media-container'
+					)
+
 					if (
-						mountEvent.target.closest('.flexy-items') ||
-						(mountEvent.target.closest('.ct-media-container') &&
-							mountEvent.target
-								.closest('.ct-media-container')
-								.parentNode.classList.contains(
-									'ct-stacked-gallery-container'
-								))
+						mountEvent.target.querySelector('.ct-media-container')
 					) {
-						$(
-							mountEvent.target.closest('.ct-media-container')
-						).trigger(
-							isTouchDevice() ? 'click.zoom' : 'mouseenter.zoom'
+						mediaContainer = mountEvent.target.querySelector(
+							'.ct-media-container'
 						)
+					}
+
+					if (mediaContainer) {
+						if (mountEvent && mountEvent.type !== 'click') {
+							$(mediaContainer).trigger('mouseenter.zoom')
+						}
 					}
 				}, 150)
 			}
@@ -439,7 +439,7 @@ export const mount = (el, { event: mountEvent }) => {
 							pills.firstElementChild
 					)
 
-					isGalleryEnabled &&
+					if (isGalleryEnabled) {
 						openPhotoswipeFor(
 							document.querySelector(
 								'.single-product .flexy-items'
@@ -447,18 +447,19 @@ export const mount = (el, { event: mountEvent }) => {
 
 							activeIndex
 						)
+					}
 				}
 			})
 		})
 	}
 
 	if (mountEvent) {
-		if (isTouchDevice() && mountEvent.type === 'click') {
+		if (mountEvent.type === 'click') {
 			setTimeout(() => {
 				if (mountEvent.target && mountEvent.target.click) {
-					mountEvent.target.click()
+					mountEvent.target.dispatchEvent(mountEvent)
 				}
-			})
+			}, 100)
 		}
 	}
 
