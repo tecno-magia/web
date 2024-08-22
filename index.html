@@ -10,7 +10,7 @@
 <meta name="robots" content="max-image-preview:large">
 <link rel="alternate" type="application/rss+xml" title="Tecno Magia &raquo; Feed" href="https://tecno-magia.com/feed/">
 <link rel="alternate" type="application/rss+xml" title="Tecno Magia &raquo; Feed de los comentarios" href="https://tecno-magia.com/comments/feed/">
-<link rel="stylesheet" id="blocksy-dynamic-global-css" href="https://tecno-magia.com/wp-content/uploads/blocksy/css/global.css?ver=48879" media="all">
+<link rel="stylesheet" id="blocksy-dynamic-global-css" href="https://tecno-magia.com/wp-content/uploads/blocksy/css/global.css?ver=42620" media="all">
 <link rel="stylesheet" id="ugb-style-css-css" href="https://tecno-magia.com/wp-content/plugins/stackable-ultimate-gutenberg-blocks/dist/frontend_blocks.css?ver=3.13.5" media="all">
 <style id="ugb-style-css-inline-css">:root {--stk-block-width-default-detected: 1290px;}</style>
 <link rel="stylesheet" id="ugb-style-css-responsive-css" href="https://tecno-magia.com/wp-content/plugins/stackable-ultimate-gutenberg-blocks/dist/frontend_blocks_responsive.css?ver=3.13.5" media="all">
@@ -83,10 +83,37 @@
 }
 
 /* Cambia de color al pasar por encima en contactos*/
-.single-icon-hover:hover {
-  transition: all 0.3s ease;
-  transform: scale(1.2); 
-}</style>
+
+.ugb-custom-icon {
+    overflow: hidden;
+    display: inline-block;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.ugb-custom-icon path {
+    fill: inherit !important; 
+}
+
+.ugb-custom-icon:hover path {
+    fill: #1559ed !important;
+}
+
+.icon-scale {
+    transition: all 0.3s ease;
+    transform-origin: center; 
+    overflow: hidden;
+    display: inline-block;
+    max-width: 100%; 
+    max-height: 100%; 
+}
+
+.icon-scale:hover {
+    transform: scale(1.2); 
+}
+
+.stk-highlight:hover {
+    color: #1559ed !important; /* Cambiar el color para los titulos al lado de los iconos */</style>
 			</head>
 
 
