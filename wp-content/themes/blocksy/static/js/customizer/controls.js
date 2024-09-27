@@ -174,8 +174,6 @@ export {
 } from '../editor/utils'
 
 export { getColorsDefaults } from '../editor/utils/colors'
-export { getStableJsonKey } from '../options/helpers/get-stable-json-key'
-export { default as cachedFetch } from '../frontend/helpers/cached-fetch'
 
 /**
  * Expose builder values

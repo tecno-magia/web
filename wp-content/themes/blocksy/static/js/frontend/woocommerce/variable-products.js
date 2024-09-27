@@ -1,7 +1,7 @@
 import $ from 'jquery'
 import ctEvents from 'ct-events'
 
-import cachedFetch from '../helpers/cached-fetch'
+import cachedFetch from 'ct-wordpress-helpers/cached-fetch'
 
 let originalImageUpdate = null
 
@@ -267,7 +267,11 @@ export const mount = (el) => {
 		if (
 			currentElement.closest('.woobt-products') ||
 			currentElement.closest('.upsells') ||
-			currentElement.closest('.related')
+			currentElement.closest('.related') ||
+			!el.closest('.product') ||
+			!el
+				.closest('.product')
+				.querySelector('.woocommerce-product-gallery')
 		) {
 			return
 		}
@@ -448,12 +452,14 @@ export const mount = (el) => {
 				productId,
 				isQuickView,
 			})
-		).then(({ success, data }) => {
-			if (!success) {
-				return
-			}
+		)
+			.then((response) => response.json())
+			.then(({ success, data }) => {
+				if (!success) {
+					return
+				}
 
-			acceptHtml(data.html, data.blocksy_gallery_style)
-		})
+				acceptHtml(data.html, data.blocksy_gallery_style)
+			})
 	}
 }

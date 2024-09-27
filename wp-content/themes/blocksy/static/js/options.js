@@ -74,7 +74,6 @@ export { default as usePopoverMaker } from './options/helpers/usePopoverMaker'
 export { default as ToolsWithOptionsPanel } from './editor/components/ToolsWithOptionsPanel'
 
 // gutenberg blocks
-export { default as useDynamicPreview } from './editor/hooks/useDynamicPreview'
 export { default as ColorsPanel } from './editor/components/ColorsPanel'
 
 export {
@@ -84,9 +83,6 @@ export {
 } from './editor/utils'
 
 export { getColorsDefaults } from './editor/utils/colors'
-export { getStableJsonKey } from './options/helpers/get-stable-json-key'
-
-export { default as cachedFetch } from './frontend/helpers/cached-fetch'
 
 export const onDocumentLoaded = (cb) => {
 	if (/comp|inter|loaded/.test(document.readyState)) {
