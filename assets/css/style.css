@@ -1083,10 +1083,90 @@ section { padding: clamp(4.5rem, 10vh, 7rem) 0; }
 }
 
 /* ---------- Contacto ---------- */
-.contact-grid {
+/* hub de contacto: WhatsApp como canal principal + secundarios apilados.
+   Sin teléfono (no atendemos llamadas) ni mapa (la zona es Rosario, no una dirección) */
+.contact-hub {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 1.8rem;
+  align-items: stretch;
+}
+
+.contact-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2.8rem 2.6rem;
+  background:
+    radial-gradient(120% 100% at 88% 0%, color-mix(in srgb, var(--accent) 10%, transparent) 0%, transparent 60%),
+    var(--card);
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, var(--line));
+  border-radius: 26px;
+  box-shadow: var(--card-shadow);
+}
+
+.contact-main .service-icon {
+  width: 64px; height: 64px;
+  border-radius: 18px;
+  margin-bottom: 1.3rem;
+}
+
+.contact-main .service-icon svg { width: 34px; height: 34px; }
+
+.contact-main h2 {
+  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+  margin-bottom: 0.25rem;
+}
+
+.contact-main > p:not(.contact-value) {
+  color: var(--muted);
+  font-size: 1.15rem;
+  line-height: 1.65;
+  max-width: 34rem;
+  margin-bottom: 0;
+}
+
+.contact-steps {
+  list-style: none;
+  margin: 1.4rem 0 2rem;
+  padding: 0;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.contact-steps li {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-weight: 600;
+}
+
+.contact-steps li span {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  color: #fff;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  background: linear-gradient(120deg, var(--brand-1), var(--brand-2));
+}
+
+.btn-wa {
+  margin-top: auto;
+  color: #fff;
+  background: linear-gradient(100deg, #1fae52, #25d366);
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.35);
+}
+
+.btn-wa:hover { box-shadow: 0 14px 34px rgba(37, 211, 102, 0.5); }
+
+.contact-side {
+  display: grid;
+  gap: 1.8rem;
+  align-content: stretch;
 }
 
 .contact-card h3 { margin-bottom: 0.35rem; }
@@ -1114,21 +1194,6 @@ section { padding: clamp(4.5rem, 10vh, 7rem) 0; }
 }
 
 .contact-link:hover span { transform: translateX(4px); }
-
-.map-wrap {
-  margin-top: 2.6rem;
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: var(--card-shadow);
-}
-
-.map-wrap iframe {
-  display: block;
-  width: 100%;
-  height: 420px;
-  border: 0;
-}
 
 /* botón suave para enlaces cruzados en fondo claro/oscuro */
 .crosslink { text-align: center; margin-top: 3.6rem; }

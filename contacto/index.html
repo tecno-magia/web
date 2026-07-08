@@ -21,8 +21,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
-<link rel="stylesheet" href="/assets/css/style.css?v=38">
-<link rel="stylesheet" href="/assets/css/mobile.css?v=38" media="(max-width: 900px)">
+<link rel="stylesheet" href="/assets/css/style.css?v=43">
+<link rel="stylesheet" href="/assets/css/mobile.css?v=43" media="(max-width: 900px)">
 </head>
 <body>
 
@@ -75,8 +75,8 @@
         <div>
           <h1 class="reveal" style="--i:1">Contacto</h1>
           <p class="page-lead page-lead-pc reveal" style="--i:2">
-            Tu conexión directa con Tecno Magia: escríbenos, llámanos o envíanos
-            un mensaje por redes. Respondemos con la misma magia con la que trabajamos.
+            Escribinos por WhatsApp o por Instagram y coordinamos todo por mensaje.
+            Respondemos con la misma magia con la que trabajamos.
           </p>
           <p class="page-lead-m reveal" style="--i:2">Escribinos por donde te quede más cómodo.</p>
           <div class="stat-badges reveal" style="--i:3">
@@ -93,7 +93,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
           </div>
           <div class="cluster-chip" style="--accent:#2ea8e8; --r:5deg; --d:-4.2s">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3.5h3.2L10 8l-2.1 1.7a12.5 12.5 0 0 0 6.4 6.4L16 14l4.5 1.8V19a2 2 0 0 1-2.2 2A16.8 16.8 0 0 1 3 5.7 2 2 0 0 1 5 3.5z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21 3.5-9.4 9.4M21 3.5 15 21l-3.4-8.1L3.5 9.5z"/></svg>
           </div>
           <div class="cluster-chip" style="--accent:#e8a606; --r:-5deg; --d:-5.6s">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5S5 15.4 5 10a7 7 0 0 1 14 0c0 5.4-7 11.5-7 11.5z"/><circle cx="12" cy="10" r="2.6"/></svg>
@@ -105,70 +105,51 @@
 
   <section class="services">
     <div class="container">
-      <div class="contact-grid">
+      <div class="contact-hub">
 
-        <article class="service-card contact-card reveal" style="--accent:#22b45c; --i:0">
+        <!-- Canal principal: WhatsApp -->
+        <article class="contact-main reveal" style="--accent:#22b45c">
           <div class="service-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a9.9 9.9 0 0 0-8.6 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.2-.3.3-.5v-.5L9.6 7.6c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.6-.4z"/></svg>
           </div>
-          <h3>WhatsApp</h3>
+          <h2>Escribinos por WhatsApp</h2>
           <p class="contact-value">+54 11 1234-5678</p>
-          <p>Contáctanos por WhatsApp para recibir asistencia inmediata. Ya sea que necesites resolver un problema o quieras información sobre nuestros servicios.</p>
-          <a class="contact-link" href="https://wa.me/5491112345678" target="_blank" rel="noopener">Escríbenos <span aria-hidden="true">→</span></a>
+          <p>Contanos qué necesitás: una reparación, un armado de PC, tu casa inteligente o cualquier otro de nuestros servicios.</p>
+          <ol class="contact-steps">
+            <li><span aria-hidden="true">1</span>Contanos el problema</li>
+            <li><span aria-hidden="true">2</span>Diagnóstico gratuito</li>
+            <li><span aria-hidden="true">3</span>Si no se repara, no se paga</li>
+          </ol>
+          <a class="btn btn-wa" href="https://wa.me/5491112345678?text=%C2%A1Hola!%20Quiero%20hacer%20una%20consulta." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.9 9.9 0 0 0-8.6 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.2-.3.3-.5v-.5L9.6 7.6c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.6-.4z"/></svg>
+            Abrir WhatsApp
+          </a>
         </article>
 
-        <article class="service-card contact-card reveal" style="--accent:#2ea8e8; --i:1">
-          <div class="service-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3.5h3.2L10 8l-2.1 1.7a12.5 12.5 0 0 0 6.4 6.4L16 14l4.5 1.8V19a2 2 0 0 1-2.2 2A16.8 16.8 0 0 1 3 5.7 2 2 0 0 1 5 3.5z"/></svg>
-          </div>
-          <h3>Teléfono</h3>
-          <p class="contact-value">+54 11 1234-5678</p>
-          <p>Llámanos para consultas o asistencia técnica. Estamos aquí para ayudarte.</p>
-          <a class="contact-link" href="tel:+541112345678">Llamar <span aria-hidden="true">→</span></a>
-        </article>
+        <!-- Canales secundarios -->
+        <div class="contact-side">
+          <article class="service-card contact-card reveal" style="--accent:#d6459f; --i:1">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+            </div>
+            <h3>Instagram</h3>
+            <p class="contact-value">@tecnomagiaoficial</p>
+            <p>Mirá trabajos y novedades, o mandanos un mensaje directo.</p>
+            <a class="contact-link" href="https://www.instagram.com/tecnomagiaoficial/" target="_blank" rel="noopener">Abrir Instagram <span aria-hidden="true">→</span></a>
+          </article>
 
-        <article class="service-card contact-card reveal" style="--accent:#d6459f; --i:2">
-          <div class="service-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
-          </div>
-          <h3>Instagram</h3>
-          <p class="contact-value">@tecnomagiaoficial</p>
-          <p>Nuestro perfil de Instagram está a tu disposición para que te pongas en contacto. Envíanos un mensaje directo para cualquier consulta.</p>
-          <a class="contact-link" href="https://www.instagram.com/tecnomagiaoficial/" target="_blank" rel="noopener">Enviar mensaje <span aria-hidden="true">→</span></a>
-        </article>
-
-        <article class="service-card contact-card reveal" style="--accent:#e8a606; --i:3">
-          <div class="service-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5S5 15.4 5 10a7 7 0 0 1 14 0c0 5.4-7 11.5-7 11.5z"/><circle cx="12" cy="10" r="2.6"/></svg>
-          </div>
-          <h3>Ubicación</h3>
-          <p class="contact-value">Av. Siempre Viva 123, Buenos Aires, Argentina</p>
-          <p>Aunque no tenemos una oficina física abierta al público, esta dirección es nuestro punto de referencia en Google Maps.</p>
-          <a class="contact-link" href="https://maps.google.com/?q=Buenos+Aires,+Argentina" target="_blank" rel="noopener">Ver en Google Maps <span aria-hidden="true">→</span></a>
-        </article>
+          <article class="service-card contact-card reveal" style="--accent:#e8a606; --i:2">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5S5 15.4 5 10a7 7 0 0 1 14 0c0 5.4-7 11.5-7 11.5z"/><circle cx="12" cy="10" r="2.6"/></svg>
+            </div>
+            <h3>Zona de trabajo</h3>
+            <p class="contact-value">Rosario, Santa Fe</p>
+            <p>Atendemos Rosario y alrededores. Coordinamos todo por WhatsApp.</p>
+          </article>
+        </div>
 
       </div>
 
-      <div class="map-wrap reveal">
-        <iframe src="https://maps.google.com/maps?q=Buenos%20Aires%2C%20Argentina&t=&z=11&ie=UTF8&output=embed"
-          title="Ubicación de Tecno Magia en Google Maps (placeholder)" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============ CTA ============ -->
-  <section class="cta">
-    <div class="container">
-      <div class="cta-card reveal">
-        <h2>Optimiza tu Tecnología Ahora</h2>
-        <p>Tu tecnología, en las mejores manos. Optimización, limpieza, instalación
-        de software y más. Solicita tu diagnóstico gratuito y dale nueva vida a tu equipo.</p>
-        <a class="btn btn-light" href="https://wa.me/5491112345678?text=%C2%A1Hola!%20Quiero%20solicitar%20mi%20diagn%C3%B3stico%20gratuito." target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.9 9.9 0 0 0-8.6 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.2-.3.3-.5v-.5L9.6 7.6c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.6-.4z"/></svg>
-          Solicita tu Diagnóstico Gratis
-        </a>
-      </div>
     </div>
   </section>
 
@@ -215,6 +196,6 @@
   </div>
 </footer>
 
-<script src="/assets/js/main.js?v=38" defer></script>
+<script src="/assets/js/main.js?v=43" defer></script>
 </body>
 </html>
