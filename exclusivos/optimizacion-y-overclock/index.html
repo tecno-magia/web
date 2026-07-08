@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<title>Optimización y Overclock — Tecno Magia</title>
+<meta name="description" content="Overclock serio de CPU Ryzen, RAM DDR5 y GPU AMD/NVIDIA: mínimos más altos, frametimes parejos y estabilidad validada con horas de testeo. Pagás por resultado.">
+<link rel="canonical" href="https://tecno-magia.com/exclusivos/optimizacion-y-overclock/">
+<link rel="icon" type="image/png" href="/assets/img/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Optimización y Overclock — Tecno Magia">
+<meta property="og:description" content="Fluidez real: mínimos más altos y frametimes parejos, no promesas de FPS.">
+<meta property="og:url" content="https://tecno-magia.com/exclusivos/optimizacion-y-overclock/">
+<meta property="og:image" content="https://tecno-magia.com/assets/img/logo.png">
+<script>
+(function () {
+  var t;
+  try { t = localStorage.getItem('theme'); } catch (e) {}
+  if (t !== 'dark' && t !== 'light') {
+    t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  document.documentElement.dataset.theme = t;
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
+<link rel="stylesheet" href="/assets/css/style.css?v=35">
+<link rel="stylesheet" href="/assets/css/mobile.css?v=35" media="(max-width: 900px)">
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a class="header-brand" href="/" aria-label="Tecno Magia — inicio">
+      <img src="/assets/img/logo.png" alt="" width="34" height="34">
+      <span class="brand-name">Tecno<em>Magia</em></span>
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
+      <div class="nav-panel">
+      <a href="/">Principal</a>
+      <div class="nav-item">
+        <a href="/servicios/" aria-current="page">Servicios <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9.5 6 6 6-6"/></svg></a>
+        <div class="dropdown">
+          <a href="/exclusivos/">Exclusivos</a>
+          <a href="/comunes/">Comunes</a>
+          <a href="/servicios/">Ver todos</a>
+        </div>
+      </div>
+      <a href="/contacto/">Contacto</a>
+      </div>
+    </nav>
+    <div class="header-actions">
+      <div class="header-social">
+        <a href="https://wa.me/5491112345678" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.9 9.9 0 0 0-8.6 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.2-.3.3-.5v-.5L9.6 7.6c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.6-.4z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/tecnomagiaoficial/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar entre tema claro y oscuro">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.3 4.3l1.7 1.7M18 18l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.3 19.7 6 18M18 6l1.7-1.7"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.3 14.5A8.5 8.5 0 0 1 9.5 3.7a8.5 8.5 0 1 0 10.8 10.8z"/></svg>
+      </button>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero page-hero--detail" style="--accent:#7c3aed">
+    <div class="container">
+      <p class="breadcrumb reveal"><a href="/">Inicio</a> › <a href="/servicios/">Servicios</a> › <a href="/exclusivos/">Exclusivos</a> › Optimización y Overclock</p>
+      <div class="detail-hero-grid">
+        <div>
+          <h1 class="reveal" style="--i:1">Optimización y Overclock</h1>
+          <p class="page-lead reveal" style="--i:2">
+            Overclock en serio. No te prometemos un número de FPS: buscamos que el juego se sienta parejo, con mínimos más altos, frametimes estables y menos stutters.
+          </p>
+          <div class="stat-badges reveal" style="--i:3">
+            <span class="badge">CPUs Ryzen</span>
+            <span class="badge">RAM DDR5</span>
+            <span class="badge">GPUs AMD y NVIDIA</span>
+          </div>
+          <div class="hero-actions--detail reveal" style="--i:4">
+            <a class="btn btn-primary" href="https://wa.me/5491112345678?text=Hola!%20Me%20interesa%20el%20servicio%20de%20Optimizaci%C3%B3n%20y%20Overclock" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.9 9.9 0 0 0-8.6 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.2-.3.3-.5v-.5L9.6 7.6c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.6-.4z"/></svg>
+              Consultar por WhatsApp
+            </a>
+            <a class="btn btn-outline" href="/exclusivos/">Ver otros Exclusivos</a>
+          </div>
+        </div>
+        <div class="hero-emblem reveal" style="--i:2" aria-hidden="true">
+          <div class="hero-emblem-chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 15.5a8 8 0 1 1 15 0"/><path d="m12 15.5 3.8-5.7"/><circle cx="12" cy="15.5" r="1.6" fill="currentColor" stroke="none"/><path d="m6 11 1.3.75M12 7.5v1.5M18 11l-1.3.75"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="container">
+      <p class="eyebrow reveal">El servicio</p>
+      <h2 class="section-title reveal" style="--i:1">La fluidez no se mide en FPS promedio</h2>
+      <p class="section-lead reveal" style="--i:2">
+        El promedio de FPS engaña: podés tener 120 y que el juego igual se sienta trabado. Lo que arruina la experiencia son los mínimos (el famoso <strong>1% low</strong>) y los stutters. Ahí es donde el ajuste fino de RAM y CPU se nota de verdad.
+      </p>
+
+      <div class="feature-grid">
+        <article class="feature-card reveal" style="--accent:#7c3aed; --i:0">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="6.5" width="11" height="11" rx="2"/><rect x="10.2" y="10.2" width="3.6" height="3.6"/><path d="M12 2.5v4M12 17.5v4M2.5 12h4M17.5 12h4"/></svg>
+          </div>
+          <h3>CPU: curva por núcleo</h3>
+          <p>Afinamos cada core por separado con Curve Optimizer y Curve Shaper sobre PBO. Subir los límites de potencia a lo bruto no es overclock, es el atajo.</p>
+        </article>
+        <article class="feature-card reveal" style="--accent:#7c3aed; --i:1">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6.5" width="19" height="11" rx="2"/><circle cx="9.5" cy="12" r="3"/><circle cx="9.5" cy="12" r=".8" fill="currentColor" stroke="none"/><path d="M16 9.5h3M16 12h3M16 14.5h3"/><path d="M5.5 17.5v2M9 17.5v2"/></svg>
+          </div>
+          <h3>GPU: curva de voltaje y frecuencia</h3>
+          <p>Ajustamos la curva de voltaje y frecuencia con undervolt, a medida de tu placa. Más rendimiento con menos temperatura y menos consumo, en vez de sumar MHz a ciegas.</p>
+        </article>
+        <article class="feature-card reveal" style="--accent:#7c3aed; --i:2">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="7.5" width="19" height="7.5" rx="1.5"/><path d="M6.5 10h2v2.5h-2zM11 10h2v2.5h-2zM15.5 10h2v2.5h-2z"/><path d="M5 15v2M9 15v2M13 15v2M17 15v2"/></svg>
+          </div>
+          <h3>RAM: subtimings a mano</h3>
+          <p>Activar XMP o EXPO no alcanza. El ajuste manual de subtimings es lo que más impacta en la latencia y en los mínimos. Evaluamos tu memoria y vemos cuánto margen real hay.</p>
+        </article>
+      </div>
+
+      <div class="callout-grid" style="--accent:#7c3aed">
+        <div class="callout callout--destacado reveal">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 20.5l1.4-5.1A8.5 8.5 0 1 1 21 11.5z"/><path d="M8.5 10.5h7M8.5 13.5h4.5"/></svg>
+          </div>
+          <div>
+            <h3>Honestidad ante todo</h3>
+            <p>El margen depende del hardware de cada equipo. Evaluamos tu memoria y tu sistema y te decimos la verdad: cuánto se puede sacar y cuánto no. Si no da para más, te avisamos antes de empezar. Por eso no cobramos por adelantado: <strong>pagás por resultado</strong>.</p>
+          </div>
+        </div>
+        <div class="callout reveal" style="--i:1">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-6 4 12 2.5-6h5"/></svg>
+          </div>
+          <div>
+            <h3>Estable o no se entrega</h3>
+            <p>Cada ajuste pasa por horas de stress test. Si el sistema no queda 100% estable, se revierte.</p>
+            <div class="tool-badges">
+              <span>y-cruncher</span><span>Prime95</span><span>OCCT</span><span>MemTest86</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="crosslink reveal">
+        <a class="btn btn-soft" href="/exclusivos/">← Volver a Exclusivos</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-card reveal">
+        <h2>¿Cuánto más puede rendir tu PC?</h2>
+        <p>Contanos qué equipo tenés y lo evaluamos. Sin promesas infladas y sin
+        cobro por adelantado: pagás por resultado.</p>
+        <a class="btn btn-light" href="https://wa.me/5491112345678?text=Hola!%20Me%20interesa%20el%20servicio%20de%20Optimizaci%C3%B3n%20y%20Overclock" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.9 9.9 0 0 0-8.6 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.2-.3.3-.5v-.5L9.6 7.6c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.6-.4z"/></svg>
+          Consultar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FAB de WhatsApp (solo mobile) -->
+<a class="wa-fab" href="https://wa.me/5491112345678?text=%C2%A1Hola!%20Quiero%20hacer%20una%20consulta." target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.9 9.9 0 0 0-8.6 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.2-.3.3-.5v-.5L9.6 7.6c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.6-.4z"/></svg>
+</a>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/">
+        <img src="/assets/img/logo.png" alt="Logo de Tecno Magia" width="42" height="42">
+        <span class="brand-name">Tecno<em>Magia</em></span>
+      </a>
+      <p>En <strong>Tecno Magia</strong>, nacimos con la idea de combinar la innovación
+      tecnológica con un toque de magia. Desde nuestros inicios, nuestro objetivo ha
+      sido hacer que la tecnología no solo sea efectiva, sino también accesible y sin
+      complicaciones. Con soluciones efectivas y un trato cercano, nos aseguramos de
+      que tu experiencia con la tecnología sea tan mágica como práctica.</p>
+    </div>
+    <div class="footer-social">
+      <h4>Síguenos</h4>
+      <p>Síguenos para más tips y actualizaciones.</p>
+      <div class="social-links">
+        <a href="https://wa.me/5491112345678" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.9 9.9 0 0 0-8.6 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.2-.3.3-.5v-.5L9.6 7.6c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.6-.4z"/></svg>
+          <span>WhatsApp</span>
+        </a>
+        <a href="https://www.instagram.com/tecnomagiaoficial/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+          <span>Instagram</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>Copyright © 2026 - Tecno Magia</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js?v=35" defer></script>
+</body>
+</html>
