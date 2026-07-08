@@ -1165,6 +1165,7 @@ section { padding: clamp(4.5rem, 10vh, 7rem) 0; }
 .carousel-dots,
 .section-title-m,
 .section-lead-m,
+.page-lead-m,
 .services-all-link,
 .card-desc-m,
 .wa-fab { display: none; }

@@ -33,13 +33,20 @@
   window.addEventListener("scroll", onScrollHeader, { passive: true });
   onScrollHeader();
 
-  /* --- Video del hero: desktop 1080p, mobile 720p (PRUEBA: antes mobile no descargaba nada) --- */
+  /* --- Video del hero: desktop 1080p, mobile 720p --- */
   var video = document.getElementById("hero-video");
   if (video) {
     var heroSrc = mqMobile.matches
       ? (video.dataset.srcMobile || video.dataset.srcDesktop)
       : video.dataset.srcDesktop;
     if (heroSrc) {
+      /* mientras el video no reproduce, en mobile se ve el gradiente SIN el
+         overlay oscuro (que lo aplastaba a negro); la clase habilita el overlay
+         recién cuando hay frames. En desktop la clase no tiene efecto. */
+      video.addEventListener("playing", function () {
+        var hero = video.closest(".hero");
+        if (hero) hero.classList.add("hero-video-on");
+      }, { once: true });
       video.src = heroSrc;
       video.muted = true;
       video.play().catch(function () {});
