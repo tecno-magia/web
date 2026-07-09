@@ -524,6 +524,12 @@
   }
   .services-grid:not(.services-carousel) .service-card .card-arrow svg { width: 17px; height: 17px; }
 
+  /* ---- Detalle: el párrafo intro de "El servicio" es redundante en mobile
+     (el lead del hero ya presenta el servicio y las feature cards lo
+     desarrollan); solo detalle, la home y los listados no se tocan ---- */
+  .page-hero--detail + .services .section-lead { display: none; }
+  .page-hero--detail + .services .section-title { margin-bottom: 1.4rem; }
+
   /* ---- Detalle: bullets del servicio como filas (ícono | texto) ---- */
   .feature-grid { gap: 0.85rem; }
   .feature-grid .feature-card {
