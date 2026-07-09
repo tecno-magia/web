@@ -227,9 +227,11 @@
     }
   });
 
-  /* --- Aparición de secciones al hacer scroll --- */
+  /* --- Aparición de secciones al hacer scroll ---
+     Con animaciones reducidas solo se omite en DESKTOP: en mobile la entrada
+     escalonada es parte del diseño (mismo criterio que el carrusel). */
   var items = document.querySelectorAll(".reveal");
-  if (mqReduced.matches || !("IntersectionObserver" in window)) {
+  if ((mqReduced.matches && !mqMobile.matches) || !("IntersectionObserver" in window)) {
     items.forEach(function (el) { el.classList.add("in"); });
     return;
   }
