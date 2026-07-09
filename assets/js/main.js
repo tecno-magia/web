@@ -40,16 +40,19 @@
       ? (video.dataset.srcMobile || video.dataset.srcDesktop)
       : video.dataset.srcDesktop;
     if (heroSrc) {
-      /* mientras el video no reproduce, en mobile se ve el gradiente SIN el
-         overlay oscuro (que lo aplastaba a negro); la clase habilita el overlay
-         recién cuando hay frames. En desktop la clase no tiene efecto. */
-      video.addEventListener("playing", function () {
+      /* mientras el video no tiene frames, en mobile se ve el gradiente SIN el
+         overlay oscuro (que lo aplastaba a negro). El overlay entra apenas hay
+         un frame para pintar (loadeddata); con el video en caché es inmediato.
+         En desktop la clase no tiene efecto. */
+      var overlayOn = function () {
         var hero = video.closest(".hero");
         if (hero) hero.classList.add("hero-video-on");
-      }, { once: true });
+      };
+      video.addEventListener("loadeddata", overlayOn, { once: true });
       video.src = heroSrc;
       video.muted = true;
       video.play().catch(function () {});
+      if (video.readyState >= 2) overlayOn(); /* caché: ya hay frame, sin espera */
     }
   }
 

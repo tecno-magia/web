@@ -153,7 +153,7 @@
   .hero-overlay {
     display: block;
     opacity: 0;
-    transition: opacity 0.6s ease;
+    transition: opacity 0.35s ease;
     background: linear-gradient(180deg, rgba(3, 6, 15, 0.62) 0%, rgba(3, 6, 15, 0.46) 42%, rgba(3, 6, 15, 0.8) 100%);
   }
   .hero.hero-video-on .hero-overlay { opacity: 1; }
