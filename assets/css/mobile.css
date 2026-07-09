@@ -140,22 +140,25 @@
      El video va ENCIMA del gradiente y trae el mismo gradiente como fondo propio:
      mientras el .webm descarga se ve el gradiente (fallback), y al cargar lo tapa.
      Buena conexión = se ve como la opción 1; mala conexión = degradado hasta que entra. */
+  /* Video y overlay entran JUNTOS con el mismo fade (clase hero-video-on desde
+     JS cuando hay frame): el video nunca se ve sin su oscurecido, y mientras
+     carga se ve el gradiente del hero limpio. */
   .hero-video {
     display: block;
+    opacity: 0;
+    transition: opacity 0.35s ease;
     background:
       radial-gradient(120% 80% at 85% 0%, rgba(46, 99, 201, 0.35) 0%, transparent 55%),
       radial-gradient(90% 70% at 5% 100%, rgba(124, 104, 238, 0.28) 0%, transparent 55%),
       var(--dark-bg);
   }
-  /* el overlay oscuro es para leer sobre el VIDEO: aparece recién cuando el
-     video reproduce (clase hero-video-on desde JS). Mientras carga, el
-     gradiente de fallback se ve limpio, sin quedar aplastado a negro. */
   .hero-overlay {
     display: block;
     opacity: 0;
     transition: opacity 0.35s ease;
     background: linear-gradient(180deg, rgba(3, 6, 15, 0.62) 0%, rgba(3, 6, 15, 0.46) 42%, rgba(3, 6, 15, 0.8) 100%);
   }
+  .hero.hero-video-on .hero-video,
   .hero.hero-video-on .hero-overlay { opacity: 1; }
   .hero-inner { display: none; }
   /* contenido cerca del top con padding fijo desde el header (no centrado sobre 100svh) */
